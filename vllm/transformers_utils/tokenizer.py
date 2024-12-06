@@ -35,7 +35,7 @@ def get_cached_tokenizer(tokenizer: AnyTokenizer) -> AnyTokenizer:
         tokenizer.all_special_tokens_extended)
     tokenizer_all_special_tokens = set(tokenizer.all_special_tokens)
     tokenizer_len = len(tokenizer)
-    max_token_id = max(tokenizer.get_vocab().values())
+    max_token_id = max(max(tokenizer.get_vocab().values()), tokenizer_len)
 
     class CachedTokenizer(tokenizer.__class__):  # type: ignore
 
